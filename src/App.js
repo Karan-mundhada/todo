@@ -28,6 +28,7 @@ function App() {
       const data = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         text: doc.data().text,
+        timestamp: doc.data().timestamp?.toDate().toLocaleString(),
       }));
       setTodos(data);
       // console.log(data)
@@ -51,14 +52,14 @@ function App() {
   if (loading) {
     return (
       <>
-        <h1>Loading</h1>
+        <h1>Loading....</h1>
       </>
     );
   }
 
   return (
     <div className="App">
-      <h1>Hello MF</h1>
+      <h1>A dumb Todo App</h1>
       <form>
         {/* <input value={input} onChange={event => setInput(event.target.value)}/> */}
 
